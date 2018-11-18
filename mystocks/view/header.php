@@ -4,8 +4,11 @@
 	require 'model/User.php';
 	require 'model/Share.php';
 
-
-	$user = new User($_SESSION['userId']);
+	$user;
+	if(isset($_SESSION['userId']))
+	{
+		$user = new User($_SESSION['userId']);
+	}
 	//require 'model/database.php';
 	/*
 	$action = $_GET['action'];
