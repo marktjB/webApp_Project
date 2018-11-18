@@ -1,9 +1,11 @@
 <?php
+
     require './model/database.php';
     $query = 'SELECT * FROM stocks';
     $statement = $db->prepare($query);
     $statement->execute();
 ?>
+<!--This is Marks code from indexHTML.php-->
 <h1>Here are the stocks data:</h1>
 	<table>
         <tr>
