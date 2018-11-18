@@ -4,6 +4,7 @@
 	require 'model/User.php';
 	require 'model/Share.php';
 
+
 	$user = new User($_SESSION['userId']);
 	//require 'model/database.php';
 	/*
@@ -52,6 +53,9 @@
 			<ul>
 				<li>
 					<a href="index.php">Home</a>
+				</li>
+				<li>
+					<a href="viewTrends.php">View Trends</a>
 				</li>
 				<?php
 				if(isset($_SESSION['userId'])) {
