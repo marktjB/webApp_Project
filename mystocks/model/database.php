@@ -6,9 +6,7 @@
 	try {
 		$db = new PDO($dsn, $dbusername, $dbpassword);
 	} catch (PDOException $e) {
-		?>
-			<p>Error</p>
-		<?php
+		echo '<p>error</p>';
 		exit();
 	}
 ?>
