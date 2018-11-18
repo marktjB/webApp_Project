@@ -1,5 +1,5 @@
 <?php
-	require "header.php";
+	require "view/header.php";
 ?>
 
 	<main>
@@ -36,5 +36,5 @@
 	</main>
 	
 <?php
-	require "footer.php";
+	require "view/footer.php";
 ?>

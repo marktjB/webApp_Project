@@ -14,14 +14,21 @@
 		public function setCurrentValue($val){
 			$this->currentValue = $val;
 		}
-		public function getStockName(){
+		public function getName(){
 			return $this->name;
 		}
-		public function setStockName($n){
+		public function setName($n){
 			$this->name = $n;
 		}
-		public static function buyStock($u) {
-			$share = new Share($u, $this);
+		public function buyStock($u) {
+			//$share = new Share($u, $s);
+			include 'database.php';
+			$query = 'INSERT INTO experimentalshares (ownerId, valueAtPurchase, company) VALUES (:ownerId, :valueAtPurchase, :company)';
+			$statement = $db->prepare($query);
+			$statement->bindValue(':ownerId', $u->getId());
+			$statement->bindValue(':valueAtPurchase', $this->currentValue);
+			$statement->bindValue(':company', $this->name);
+			$statement->execute();
 		}
 	}
 ?>
