@@ -10,11 +10,11 @@
 	<nav>
 		<ul>
 			<li>
-				<a href="tencent.php">Tencent Holdings</a>
-			</li>
-			<li>
 				<a href="viewTrends.php">Activision-Blizzard</a>
 			</li>
+			<li>
+				<a href="tencent.php">Tencent Holdings</a>
+			</li>			
 			<li>
 				<a href="ea.php">Electronic Arts</a>
 			</li>
