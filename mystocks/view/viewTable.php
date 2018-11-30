@@ -21,7 +21,7 @@
                 $ea->buyStock($user);
             }
         break;
-        case 'buynetease':
+        case 'buy-netease':
             {
                 $netease->buyStock($user);
             }
