@@ -6,7 +6,14 @@
     $statement->execute();
     $getShares = $statement->fetchAll();
     $statement->closeCursor();
+	
     $shares = array();
+	
+	$action = filter_input(INPUT_POST, 'action');
+	if($action == false || $action == null){
+		$action = 'view';
+	}
+	
     foreach($getShares as $getShare){
         $share;
         switch($getShare['company']){
@@ -23,9 +30,21 @@
             $share = new Share($getShare['shareId'], $getShare['ownerId'], $netease);
             break;
         }
+		
+		
         $share->setOriginalValue($getShare['valueAtPurchase']);
-        $shares[] = $share;
+		if($action == 'sell'){
+			if($share->getId() == FILTER_INPUT(INPUT_POST, 'shareToSell')){
+				$share->sell();
+			} else {
+				$shares[] = $share;
+			}
+		} else {
+			$shares[] = $share;
+		}
+        
     }
+	
 ?>
 <main>
 		<div>
@@ -60,6 +79,13 @@
                         <td>
                             <?php echo $share->getDifference(); ?>
                         </td>
+						<td>
+							<form action="myShares.php" method="post">
+								<input type="hidden" name="action" value="sell">
+								<input type="hidden" name="shareToSell" value="<?php echo $share->getId() ?>">
+								<input type="submit" value="sell">
+							</form>
+						</td>
                     </tr>
                     <?php endforeach ?>
                 </table>

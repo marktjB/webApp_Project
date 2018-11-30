@@ -32,9 +32,12 @@
 			$query = 'DELETE FROM experimentalshares WHERE
 					  shareId = :id';
 			$statement = $db->prepare($query);
-			$statement->bindValue(':id', $id);
+			$statement->bindValue(':id', $this->id);
 			$statement->execute();
 			$statement->closeCursor();
+		}
+		function getId(){
+			return $this->id;
 		}
 	}
 ?>
