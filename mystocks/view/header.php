@@ -64,9 +64,6 @@
 				if(isset($_SESSION['userId'])) {
 				echo '
 					<li>
-						<a href="myCart.php">View Cart</a>
-					</li>
-					<li>
 						<a href="myShares.php">My Shares</a>
 					</li>
 					<li>
